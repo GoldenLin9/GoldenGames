@@ -1,1 +1,1 @@
-web: gunicorn goldens_games.wsgi
+web: gunicorn golden_games.wsgi
