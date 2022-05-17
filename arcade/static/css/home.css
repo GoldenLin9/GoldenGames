@@ -114,7 +114,7 @@ h2 + select{
     width: 30px;
     height: 30px;
     cursor: pointer;
-    background-image: url("../img/search.png");
+    background-image: url("/static/images/search.png");
     background-size: cover;
     border-radius: 20%;
 }
@@ -242,7 +242,7 @@ aside input[type="submit"]{
     cursor: pointer;
     border-radius: 30%;
     margin-left: 1ch;
-    background-image: url(../img/x.png);
+    background-image: url("/static/images/x.png");
     background-size: cover;
 }
 
@@ -298,7 +298,7 @@ footer ul{
     right: 15px;
     width: 30px;
     height: 30px;
-    background-image: url(../img/hamburger.png);
+    background-image: url("/static/images/hamburger.png");
     background-size: cover;
     border: none;
     background-color: goldenrod;
