@@ -1,0 +1,46 @@
+{% extends "arcade/base.html" %}
+{% load static %}
+
+{% block extra_static %}
+<link rel = "stylesheet" href = "{% static 'css/minesweeper.css' %}">
+<script src = "{% static 'js/minesweeper.js' %}" defer></script>
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+{% endblock %}
+
+{% block content %}
+    <aside id = "extra">
+        <div id = "themes-container">
+            <h1>Themes</h1>
+            <select id = "themes">
+                <option value = "forestgreen" id = "mario">Mario</option>
+                <option value = "grey" id = "classic" selected>Classic</option>
+            </select>
+        </div>
+        <div id = "flagBox">
+            <h1></h1>
+            <img id = "flag-icon" src = "{% static 'images/flag.png' %}" draggable = "true">
+            <div>
+                <button id = "btn">Flag</button>
+            </div>
+        </div>
+
+        <div id = "difficulty">
+            <h1>Difficulty</h1>
+            <div>
+                <select id = "levels">
+                    <option value = "lightgreen" label = "Easy" id = "ez">easy</option>
+                    <option value = "yellowgreen" label = "Medium" id = "M">medium</option>
+                    <option value = "yellow" label = "Hard" id = "H">hard</option>
+                    <option value = "orange" label = "Expert" id = "E">expert</option>
+                    <option value = "red" label = "Impossible" id = "I">impossible</option>
+                </select>
+            </div>
+        </div>
+
+        <div id = "timer">
+            <h1>Timer</h1>
+            <p>0:00:0000</p>
+        </div>
+    </aside>
+    <div id = "grid"></div>
+{% endblock %}

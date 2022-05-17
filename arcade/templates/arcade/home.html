@@ -1,0 +1,123 @@
+{% load crispy_forms_tags %}
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Home</title>
+
+        {% load static %}
+        <script src = "{% static 'js/home.js' %}" defer></script>
+        <link rel = "stylesheet" href = "{% static 'css/home.css' %}">
+        <link rel = "icon" href = "{% static 'images/icon.png' %}">
+
+        {% block extra_css %}
+        {% endblock %}
+    </head>
+    <body>
+        <header>
+            <h1></h1>
+            <ul>
+                <li>About the Creator</li>
+                <li>Hall of Fame 👑</li>
+                <li>Report Bugs 🐛</li>
+                <li>Suggestions 💡</li>
+            </ul>
+        </header>
+
+        <main>
+            <div id = "center">
+                <section id = "settings">
+                    <div id = "filter">
+                        <h2>Filter by</h2>
+                        <select id = "filters">
+                            <option disabled selected> -- select an option -- </option>
+                            <option value = "single">Single-Player</option>
+                            <option value = "multi">Multi-Player</option>
+                            <option value = "comp">Leaderboard</option>
+                        </select>
+                        <div id = "filter-tags">
+                            Filters:      
+                        </div>
+                    </div>
+
+                    <div id = "sort-container">
+                        <h2>Sort by</h2>
+                        <select id = "sort">
+                            <option disabled selected> -- select an option -- </option>
+                            <option value = "new" >Newest</option>
+                            <option value = "hot" >Most played</option>
+                            <option value = "alphabetical" >Alphabetical</option>
+                            <option value = "rating" >Ratings</option>
+                        </select>
+                    </div>
+
+                    <div id = "search">
+                        <div id = "searchBox"></div>
+                        <button></button>
+                    </div>
+                </section>
+
+                <section id = "games">
+                    {% for game in games %}
+                        <div class = "containers">
+                            <a href = "{% url 'mine' %}">
+                                <img src = "{% static 'images/mine-thumb.PNG' %}">
+                            </a>
+                            <div class = "gameNames">{{ game.name }}</div>
+                        </div>
+                    {% endfor %}
+                </section>
+            </div>
+    
+            <aside>
+                {% if user.is_authenticated %}
+                    <div style = "font-size: 2rem; color: rgb(21, 138, 138); text-align: center;">
+                        Welcome {{ user.username }} 👋
+                    </div>
+                {% else %}
+                    <div id = "login">
+                        <h2>Returning Users</h2>
+                        <form method = "POST">
+                            {% csrf_token %}
+                            <!-- <input type = "text" placeholder = "Username">
+                            <input type = "email" placeholder = "Email">
+                            <input type = "submit" value = "Login"> -->
+                            {{ log_in.as_p }}
+                            <button type = "submit" name = "submit" value = "log_in">Login</button>
+                        </form>
+                    </div>
+
+                    <div id = "sign-up">
+                        <h2>Sign up to set records!</h2>
+                        <form method = "POST">
+                            {% csrf_token %}
+                            <!-- <input type = "text" placeholder = "Username">
+                            <input type = "email" placeholder = "Email">
+                            <input type = "submit" value = "Sign Up"> -->
+                            {{ sign_up.as_p }}
+                            <button type = "submit" name = "submit" value = "sign_up">Sign Up</button>
+                        </form>
+                    </div>
+                {% endif %}
+
+                <div id = "news">
+                    <h2>Recent News/Updates</h2>
+                    <ul>
+                        <li>1/24/22: Home Page established</li>
+                    </ul>
+                </div>
+            </aside>
+        </main>
+
+        <footer>
+            <ul>
+                <li><a href = "https://github.com/GoldenLin9">Github</a></li>
+                <li>More of my Websites</li>
+            </ul>
+            <img src = "{% static 'images/icon.png' %}" id = "pic"></img>
+        </footer>
+    </body>
+</html>

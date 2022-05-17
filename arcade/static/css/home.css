@@ -1,0 +1,363 @@
+:root{
+    --borderColor: red;
+}
+
+body{
+    background-color: goldenrod;
+    margin: 0;
+    width: 100vw;
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+
+header h1{
+    font-size: 4rem;
+    text-align: center;
+    margin: 0;
+}
+
+header h1 span{
+    color: gold;
+    text-shadow:3px 3px 3px black;
+}
+
+header ul{
+    display: flex;
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+header li{
+    border: 4px solid black;
+    font-size: 1.5rem;
+    box-sizing: border-box;
+    background-color: gold;
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    padding: 0.25em;
+    flex: 1 1 auto;
+}
+
+main{
+    display: flex;
+}
+
+aside{
+    border-left: 3px solid var(--borderColor);
+}
+
+aside div{
+    border-bottom: 3px solid var(--borderColor);
+}
+
+#settings div{
+    margin-top: 1ch;
+}
+
+#settings h2{
+    margin: 0;
+    text-align: center;
+    color: blue;
+}
+
+#games{
+    width: 90%;
+    height: 65vh;
+    background-color: gold;
+    margin: 0 auto;
+    border-radius: 3rem;
+    margin-top: 5ch;
+    margin-bottom: 3ch;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+#settings div{
+    margin: 0;
+}
+
+h2 + select{
+    margin-left: 1ch;
+    margin-right: 3ch;
+}
+
+#settings{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: fit-content;
+    margin-left: auto;
+    margin-right: 2ch;
+    margin-top: 3ch;
+    justify-content: flex-end;
+}
+
+#search input[type="text"]{
+    border-radius: 1em;
+    padding: 0.4em;
+    height: 30px;
+    box-sizing: border-box;
+    width: 120px;
+}
+
+#search{
+    display: flex;
+    align-self: center;
+    height: 30px;
+}
+
+#search button{
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+    background-image: url("../img/search.png");
+    background-size: cover;
+    border-radius: 20%;
+}
+
+#searchBox {
+    overflow: visible;
+}
+
+option, select{
+    cursor: pointer;
+    padding: 0.25em;
+
+}
+
+main{
+    border-bottom: 3px solid var(--borderColor);
+}
+
+#filter{
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+#filter-tags{
+    position: absolute;
+    bottom: 0;
+    transform: translateY(120%);
+    color: grey;
+    white-space:nowrap;
+    display: flex;
+    align-items: center;
+}
+
+#center{
+    position: relative;
+    flex: 1 1 70%;
+}
+
+aside{
+    flex: 1 1 30%;
+}
+
+aside h2{
+    text-align: center;
+    font-size: 1.75rem;
+    color: rgb(99, 158, 40);
+}
+
+aside input{
+    display: block;
+    margin-left: 30px;
+    border: none;
+    margin-bottom: 1ch;
+    font-size: 1rem;
+}
+
+aside input[type = "text"], aside input[type = "email"]{
+    background-color: goldenrod;
+    border-bottom: 1px solid gold;
+    width: 75%;
+    border-radius: 0;
+}
+
+aside input[type = "text"]::placeholder, aside input[type = "email"]::placeholder{
+    color: rgb(90, 84, 84);
+}
+
+aside input[type = "text"]:focus, aside input[type = "email"]:focus{
+    outline: none;
+    font-size: 1.2rem;
+}
+
+aside input[type="submit"]{
+    background-color: gold;
+    font-size: 1.3rem;
+    cursor: pointer;
+    color: black;
+}
+
+#news{
+    border-bottom: none;
+}
+
+#games img{
+    width: 100%;
+    height: 100%;
+    cursor: pointer;
+}
+
+.gameNames{
+    text-align: center;
+    font-weight: 900;
+    font-size: 1.5rem;
+}
+
+.containers{
+    margin: 2em;
+    width: 20%;
+    height: 25%;
+}
+
+#news ul{
+    list-style-type: "\1F514";
+    color:rgb(10, 55, 92);
+    font-size: 1.2rem;
+}
+
+#new ul li{
+    color: white;
+}
+
+.tag{
+    border: 2px dotted darkslategrey;
+    box-sizing: border-box;
+    margin: 0ch 1ch;
+    padding: 0.2ch;
+}
+
+#x{
+    height: 25px;
+    width: 25px;
+    background-color: grey;
+    opacity: 0.75;
+    cursor: pointer;
+    border-radius: 30%;
+    margin-left: 1ch;
+    background-image: url(../img/x.png);
+    background-size: cover;
+}
+
+#searchBox div{
+    background-color: white;
+    border: 2px solid black;
+    box-sizing: border-box;
+    padding: 0.25em;
+}
+
+#searchBox div p{
+    margin: 0;
+}
+
+#notFound{
+    text-align: center;
+    white-space: pre-wrap;
+}
+
+#sort-container{
+    display: flex;
+    align-items: center;
+}
+
+#searchBox a{
+    text-decoration: none;
+}
+
+#pic{
+    width: 4vmax;
+    height: 4vmax;
+    position: absolute;
+    right: 0;
+    top: 0;
+}
+
+footer{
+    position: relative;
+}
+
+footer ul{
+    list-style-type: none;
+    display: flex;
+    margin: 0;
+    padding: 0;
+    justify-content: space-around;
+    align-items: center;
+}
+
+#hamburger{
+    position: absolute;
+    top: 3px;
+    right: 15px;
+    width: 30px;
+    height: 30px;
+    background-image: url(../img/hamburger.png);
+    background-size: cover;
+    border: none;
+    background-color: goldenrod;
+    cursor: pointer;
+}
+
+html{
+    position: relative;
+}
+
+#side{
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 50%;
+    background-color: goldenrod;
+    border-left: 1px solid var(--borderColor);
+    flex-grow: 1;
+    height: 100%;
+}
+
+#sideX{
+    width: 30px;
+    height: 30px;
+    margin-left: auto;
+    display: block;
+}
+
+@media(max-width: 700px){
+    #settings h2{
+        font-size: 1rem;
+    }
+
+    #sort-container, #filter{
+        display: block;
+    }
+
+    #settings{
+        margin-top: 4ch;
+    }
+
+    aside, aside div{
+        border: none;
+    }
+
+    aside input[type = "text"]:focus, aside input[type = "email"]:focus{
+        outline: none;
+        font-size: 1rem;
+    }
+
+}
+
+@media(min-width: 1400px){
+    #center{
+        flex: 5 1 auto;
+    }
+
+    aside{
+        flex: 1 1 auto;
+    }
+}

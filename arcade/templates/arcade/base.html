@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang = "en">
+    <head>
+        <meta charset = "UTF-8">
+
+        {% load static %}
+        <link rel = "stylesheet" href = "{% static 'css/base.css' %}">
+        <script src = "{% static 'js/base.js' %}" defer></script>
+
+        {% block extra_static %}
+        {% endblock %}
+
+        <title>{% block title %}Golden Games{% endblock %}</title>
+    </head>
+
+    <body>
+        <header>
+            <ul>
+                <li><a href = "{% url 'home' %}">Home 🏠</a></li>
+                <li>Rate the Game</li>
+                <li>Report Bugs 🐛</li>
+                <li>Suggestions 💡</li>
+                <li id = "leaderboard">Leaderboard 🏆
+                    <ol id = "scores" style = "display: none">
+                        {% for score in scores %}
+                            <li>#{{ forloop.counter }}. {{ score.player }}: {{ score.score }}</li>
+                        {% endfor %}
+                    </ol>
+                </li>
+            </ul>
+            <h1>Minesweeper</h1>
+        </header>
+
+        <main>
+            {% block content %}
+            {% endblock %}
+        </main>
+    </body>
+</html>

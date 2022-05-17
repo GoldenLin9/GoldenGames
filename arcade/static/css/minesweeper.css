@@ -1,0 +1,195 @@
+header h1{
+    text-align: center;
+    height: 10vh;
+    margin-top: 0;
+    font-size: 4rem;
+    margin-bottom: 0;
+    color:rgba(231, 78, 78, 0.856)
+}
+
+html{
+    background-size: 100vw 100vh;
+    background-position: center top;
+    background-repeat: no-repeat;
+}
+
+body{
+    margin: 0;
+}
+
+.row{
+    display: flex;
+}
+
+.block{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    cursor: pointer;
+    box-sizing: border-box;
+}
+
+.block::after{
+    content: "";
+    position: absolute;
+    inset: 0;
+}
+
+.block:hover::after{
+    background-color: rgba(255,255,255,0.3);
+}
+
+.num{
+    color: black;
+    font-weight: bolder;
+    text-align: center;
+    cursor: pointer;
+    visibility: hidden;
+}
+
+.bomb{
+    visibility: hidden;
+}
+
+main{
+    display: flex;
+    justify-content: center;
+}
+
+#extra{
+    position: relative;
+    right: 1vw;
+}
+
+#extra h1{
+    font-size: 3rem;
+    margin: 0;
+    text-align: center;
+}
+
+#flag-icon{
+    display: block;
+    cursor: grab;
+    margin: 0 auto;
+}
+
+.flag{
+    position: absolute;
+}
+
+#btn{
+    width: 50%;
+    height: 10%;
+    font-size: 2rem;
+}
+
+#btn:active{
+    transform: scale(0.75);
+}
+
+#flagBox{
+    margin-top: 2vh;
+}
+
+#flagBox div{
+    text-align: center;
+}
+
+#difficulty{
+    margin-top: 2vh;
+}
+
+#difficulty div{
+    text-align: center;
+}
+select{
+    font-size: 1.5rem;
+}
+
+option{
+    font-size: 1.5rem;
+}
+
+#ez{
+    background-color: lightgreen;
+}
+
+#levels{
+    background-color: lightgreen;
+}
+
+#M{
+    background-color: yellowgreen;
+}
+
+#H{
+    background-color: yellow;
+}
+
+#E{
+    background-color: orange;
+}
+
+#I{
+    background-color: red;
+}
+
+#grid{
+    position: relative;
+}
+
+#ending{
+    position: absolute;
+    top: 0;
+    z-index: 5;
+}
+
+#text{
+    text-align: center;
+    opacity: 0.8;
+}
+
+#endBtn{
+    width: 5rem;
+    height: 5rem;
+    background-image: url("/static/images/restart.png");
+    background-size: 100%;
+    background-repeat: no-repeat;
+    background-position: center;
+    border-radius: 1em;
+    opacity: 0.7;
+    cursor: pointer;
+    margin-left: 50%;
+    transform: translateX(-50%);
+}
+
+#timer h1{
+    margin-top: 2vh;
+}
+
+#timer p{
+    text-align: center;
+    font-size: 1.75rem;
+
+}
+
+#ending p{
+    margin: 0;
+}
+
+#themes-container{
+    text-align: center;
+}
+
+#mario{
+    background-color: forestgreen;
+}
+
+#classic{
+    background-color: grey;
+}
+
+#themes{
+    background-color: grey;
+}
