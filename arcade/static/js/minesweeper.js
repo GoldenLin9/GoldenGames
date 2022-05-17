@@ -428,7 +428,7 @@ function end(condition){
             return cookieValue;
         }
         
-        const serverUrl = "http://127.0.0.1:8000/minesweeper/"
+        const serverUrl = "https://golden-games.herokuapp.com/minesweeper/"
         const request = new Request(serverUrl, { headers: { 'X-CSRFToken': getCookie("csrftoken") } })
         fetch(request, {
             method: "POST",
