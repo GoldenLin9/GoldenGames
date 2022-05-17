@@ -412,46 +412,36 @@ function end(condition){
         btn.style.backgroundColor = "red";
         text.style.color = "red";
     } else {
-        // function getCookie(name) {
-        //     let cookieValue = null;
-        //     if (document.cookie && document.cookie !== '') {
-        //         const cookies = document.cookie.split(';');
-        //         for (let i = 0; i < cookies.length; i++) {
-        //             const cookie = cookies[i].trim();
-        //             // Does this cookie string begin with the name we want?
-        //             if (cookie.substring(0, name.length + 1) === (name + '=')) {
-        //                 cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
-        //                 break;
-        //             }
-        //         }
-        //     }
-        //     return cookieValue;
-        // }
+        function getCookie(name) {
+            let cookieValue = null;
+            if (document.cookie && document.cookie !== '') {
+                const cookies = document.cookie.split(';');
+                for (let i = 0; i < cookies.length; i++) {
+                    const cookie = cookies[i].trim();
+                    // Does this cookie string begin with the name we want?
+                    if (cookie.substring(0, name.length + 1) === (name + '=')) {
+                        cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+                        break;
+                    }
+                }
+            }
+            return cookieValue;
+        }
         
-        // const serverUrl = "https://golden-games.herokuapp.com/minesweeper/"
-        // const request = new Request(serverUrl, { headers: { 'X-CSRFToken': getCookie("csrftoken") } })
-        // fetch(request, {
-        //     method: "POST",
-        //     mode: "same-origin",
-        //     body: JSON.stringify({
-        //         score: time.textContent,
-        //         difficulty: gameMode.selectedOptions[0].textContent
-        //     })
-        // }).then(response => {
-        //     console.log(response)
-        // }).catch(err => {
-        //     console.log(err)
-        // });
-        axios.defaults.xsrfHeaderName = "X-CSRFTOKEN";
-        axios.defaults.xsrfCookieName = "csrftoken";
-
-        axios({
-            method: 'post',
-            url: 'golden-games.herokuapp.com/minesweeper/',
-            data: {
+        const serverUrl = "https://golden-games.herokuapp.com/minesweeper/"
+        const request = new Request(serverUrl, { headers: { 'X-CSRFToken': getCookie("csrftoken") } })
+        fetch(request, {
+            method: "POST",
+            mode: "same-origin",
+            body: JSON.stringify({
                 score: time.textContent,
-            },
-          });
+                difficulty: gameMode.selectedOptions[0].textContent
+            })
+        }).then(response => {
+            console.log(response)
+        }).catch(err => {
+            console.log(err)
+        });
 
         text.textContent = `Hip-Hip Hooray, you saved city from the bombs being set off in `;
         if(minutes !== 0){
