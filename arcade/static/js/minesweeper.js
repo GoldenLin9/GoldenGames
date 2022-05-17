@@ -433,6 +433,7 @@ function end(condition){
         fetch(request, {
             method: "POST",
             mode: "same-origin",
+            credentials: "same-origin",
             body: JSON.stringify({
                 score: time.textContent,
                 difficulty: gameMode.selectedOptions[0].textContent
