@@ -1,0 +1,109 @@
+.root{
+    margin-left: 3em;
+    margin-top: 2em;
+    margin-bottom: 2em;
+
+    .comment{
+        font-size: 1.175rem;
+        padding-left: 2ch;
+        margin-top: 0;
+        margin-bottom: 0;
+    }
+    
+    .post{
+        position: relative;
+        margin-top: 3ch;
+
+        .head{
+
+            small{
+                font-size: 1rem;
+                padding-left: 1ch;
+            }
+
+        }
+
+        .minimize{
+
+            .icons{
+                padding-left: 3ch;
+                height: 2ch;
+            }
+
+            div{
+                height: 2em;
+            }
+
+            i{
+                height: 2ch;
+            }
+
+            i:hover{
+                cursor: pointer;
+            }
+
+            .textBox{
+                margin-left: 3ch;
+                border: 2px solid black;
+                border-radius: 3%;
+                width: fit-content;
+                height: fit-content;
+
+                .textField{
+                    background-color: transparent;
+                    border: none;
+                    resize: none;
+                }
+
+                .textField:focus{
+                    outline: 0;
+                }
+                
+                .postButton{
+                    margin-left: auto;
+                    display: block;
+                    background-color: black;
+                    color: gold;
+                    cursor: pointer;
+                }
+            }
+        }
+
+
+
+    }
+
+    .line{
+        position: absolute;
+        top: 0;
+        margin: 0;
+        width: 4px;
+        height: 0px;
+        background-color: black;
+    }
+
+    .line:hover{
+        cursor: pointer;
+        background-color: white;
+    }
+}
+
+
+#user_post_box {
+    text-align: center;
+    position: relative;
+
+    
+    #user_post_text {
+        margin-top: 15px;
+        width: 50%;
+        height: 100%;
+    }
+
+    #user_post_button {
+        position: absolute;
+        top: 100%;
+        transform: translate(-100%, -20%);
+        cursor: pointer;
+    }
+}

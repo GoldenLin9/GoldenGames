@@ -4,13 +4,13 @@
         <meta charset = "UTF-8">
 
         {% load static %}
-        <link rel = "stylesheet" href = "{% static 'css/base.css' %}">
-        <script src = "{% static 'js/base.js' %}" defer></script>
+        <link rel = "stylesheet" href = "{% static 'css/game-base.css' %}">
+        <script src = "{% static 'js/game-base.js' %}" defer></script>
 
         {% block extra_static %}
         {% endblock %}
 
-        <title>{% block title %}Golden Games{% endblock %}</title>
+        <title>{% block title %}{{game.name|title}}{% endblock %}</title>
     </head>
 
     <body>
@@ -22,13 +22,15 @@
                 <li>Suggestions 💡</li>
                 <li id = "leaderboard">Leaderboard 🏆
                     <ol id = "scores" style = "display: none">
-                        {% for score in scores %}
-                            <li>#{{ forloop.counter }}. {{ score.player }}: {{ score.score }}</li>
+                        {% for name, score in scores.items %}
+                            <li>#{{ forloop.counter }} {{ name }} {{score}} {{game.context}}</li>
                         {% endfor %}
                     </ol>
                 </li>
             </ul>
-            <h1>Minesweeper</h1>
+            {% if game.name %}
+                <h1>{{game.name| title }}</h1>
+            {% endif %}
         </header>
 
         <main>

@@ -10,9 +10,16 @@ class Game(models.Model):
         ("single", "Single-Player"),
     ]
 
+    scoring_types = [
+        ("Timer", "Timer"),
+        ("Points", "Points")
+    ]
+
     name = models.CharField(max_length = 50)
     competitive = models.BooleanField()
     mode = models.CharField(max_length = 15, choices = mode_choices)
+    scoring = models.CharField(max_length = 20, choices = scoring_types, blank = True)
+    context = models.CharField(max_length = 20, blank = True)
     thumbnail = models.ImageField()
     date_created = models.DateField()
 
@@ -24,7 +31,6 @@ class Score(models.Model):
     player = models.ForeignKey(User, on_delete = models.PROTECT)
     score = models.CharField(max_length = 20)
     game = models.ForeignKey(Game, on_delete = models.CASCADE)
-    extra = models.CharField(max_length = 50, null = True)
 
     def __str__(self):
-        return f"{self.player.username}- {self.score} on {self.game.name}"
+        return f"{self.player.username}- {self.score} {self.game.context} on {self.game.name}"

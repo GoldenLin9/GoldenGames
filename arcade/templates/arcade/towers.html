@@ -1,0 +1,30 @@
+{% extends "arcade/game-base.html" %}
+
+{% load static %}
+{% block extra_static %}
+<link rel = "stylesheet" href = "{% static 'css/towers.css' %}">
+<script src = "{% static 'js/towers.js' %}" defer></script>
+<script src="https://kit.fontawesome.com/a07d24ab47.js" crossorigin="anonymous"></script>
+{% endblock %}
+
+{% block content %}
+<div id = "leaderboard">
+</div>
+
+<div id = "game">
+    <canvas></canvas>
+
+    <div id = "banner">
+        <p id = "text">
+            Construct the highest building! <br><br> <code>click</code> or press <code>space</code> to build
+        </p>
+    </div>
+    <div id = "icon-container">
+        <i id = "icon" class="fa-solid fa-play"></i>
+    </div>
+</div>
+
+<aside>
+    Tower Height: 0 blocks
+</aside>
+{% endblock content%}

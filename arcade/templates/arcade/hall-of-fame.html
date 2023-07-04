@@ -1,0 +1,30 @@
+{% extends "arcade/tabs-base.html" %}
+
+{% load static %}
+
+{% block extra_static %}
+<link rel = "stylesheet" href = "{% static 'css/hall-of-fame.css' %}">
+{% endblock %}
+
+{% block title %}Hall of Fame 👑{% endblock %}
+
+{% block hall-of-fame %}
+{% endblock %}
+
+{% block content %}
+
+    {% for game, scores in records.items %}
+        <div class = "card">
+            <h1>{{game.name| title}}</h1>
+            <div class = "bars">
+                {% for score in scores %}
+                    <div class = "bar">
+                        <p class = "name">#{{ forloop.counter }} {{score.0}}</p>
+                        <p class = "score">{{score.1}} {{ game.context }}</p>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    {% endfor %}
+
+{% endblock content %}

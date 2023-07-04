@@ -1,0 +1,45 @@
+main {
+  display: flex;
+}
+main .card {
+  width: 300px;
+  height: 300px;
+  background-color: rgb(106, 56, 5);
+  margin: 50px;
+  border-radius: 10%;
+  display: flex;
+  flex-direction: column;
+}
+main .card h1 {
+  text-align: center;
+  color: rgb(230, 226, 214);
+}
+main .card .bars {
+  display: flex;
+  justify-content: center;
+  align-items: end;
+  flex-grow: 1;
+}
+main .card .bars .bar {
+  width: 80px;
+}
+main .card .bars .bar:nth-child(1) {
+  order: 2;
+  height: 80%;
+  background-color: gold;
+}
+main .card .bars .bar:nth-child(2) {
+  order: 1;
+  height: 60%;
+  background-color: silver;
+}
+main .card .bars .bar:nth-child(3) {
+  order: 3;
+  height: 40%;
+  background-color: rgb(173, 138, 86);
+}
+main .card .bars .name, main .card .bars .score {
+  font-weight: 800;
+  justify-content: center;
+  text-align: center;
+}/*# sourceMappingURL=hall-of-fame.css.map */

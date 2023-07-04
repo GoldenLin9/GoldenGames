@@ -1,7 +1,9 @@
 from django.shortcuts import render
 from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 from django.contrib.auth import login
+from django.contrib.auth import logout
 from django.shortcuts import redirect
+from django.http import HttpResponseRedirect
 import json
 from .models import *
 
@@ -26,6 +28,11 @@ def home(request):
                 login(request, user)
 
                 return redirect("home")
+            
+        elif request.POST.get("submit") == "log_out":
+            logout(request)
+
+            return redirect("home")
 
     sign_up = UserCreationForm()
     log_in = AuthenticationForm()
@@ -40,34 +47,69 @@ def home(request):
     return render(request, "arcade/home.html", context)
 
 
-def mine(request):
-    game = Game.objects.filter(name__iexact = "Minesweeper").first()
+def converter(score, scoring) -> int:
+    if scoring.lower() == "timer":
+        return int(score.replace(":",""))
+
+    elif scoring.lower() == "points":
+        return int(score)
+
+
+def mine(request, game):
+    game = Game.objects.filter(name__iexact = game).first()
+    scoring = game.scoring
+
 
     if request.method == "POST":
-        # save score ONLY if score is better than record, so I can save storage
-        time = int(json.loads(request.body)["score"].replace(":","").lstrip("0"))
-        best = Score.objects.filter(player = request.user, game = game).first()
-        if best == None:
-            best = float("inf")
-        else:
-            best = int(best.score.replace(":","").lstrip("0"))
 
-        if time < best:
-            if best != float("inf"):
-                Score.objects.filter(player = request.user, game = game).first().delete()
+        best = Score.objects.filter(player = request.user, game = game)
+        new = json.loads(request.body)["score"]
 
-            new_high = Score(player = request.user, game = game, score = json.loads(request.body)["score"])
-            new_high.save()
+        if scoring == "points":
+
+            if not best.exists() or converter(new, scoring) > converter(best.first().score, scoring):
+                best.delete()
+                print("condition")
+                print(new)
+                new_high = Score(player = request.user, score = new, game = game)
+                new_high.save()
+
+        elif scoring == "timer":
+
+            if not best.exists() or converter(new, scoring) < converter(best.first().score, scoring):
+                best.delete()
+                new_high = Score(player = request.user, score = new, game = game)
+                new_high.save()
+                best.delete()
 
     obj_scores = Score.objects.filter(game = game)
-    scores = {}
-    for score in obj_scores:
-        scores[score] = score.score.replace(":", "").lstrip("0")
+    scores = {score.player: score.score for score in obj_scores}
+    sorted_scores = dict(sorted(scores.items(), key = lambda x: converter(x[1], scoring)))
+
+    context = {
+        "scores": sorted_scores,
+        "game": game,
+    }
+
+    return render(request, f"arcade/{game}.html", context)
+
+
+def hall_of_fame(request):
+    records = {}
+
+    for game in Game.objects.filter(competitive = True):
+        scoring = game.scoring
+        obj_scores = Score.objects.filter(game = game)
+        scores = [[score.player, score.score] for score in obj_scores]
+        sorted_scores = list(sorted(scores, key = lambda x: converter(x[1], scoring)))
+
+        records[game] = sorted_scores[:3]
     
-    scores = dict(sorted(scores.items(), key = lambda item:item[1]))
+    context = {
+        "records": records,
+    }
 
-    return render(request, "arcade/minesweeper.html", {"scores": scores})
+    return render(request, "arcade/hall-of-fame.html", context)
 
-
-def score(request, score):
-    return render(request, "arcade/test.html", {"score":score})
+def origin(request):
+    return render(request, "arcade/origin.html")

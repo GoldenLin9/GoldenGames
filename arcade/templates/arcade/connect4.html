@@ -1,0 +1,27 @@
+{% extends "arcade/game-base.html" %}
+
+{% load static %}
+{% block extra_static %}
+<link rel = "stylesheet" href = "{% static 'css/connect4.css' %}">
+<script src = "{% static 'js/connect4.js' %}" defer></script>
+{% endblock %}
+
+{% block content %}
+<aside id = "player1"> 
+    <h1>Player 1</h1>
+</aside>
+
+<aside id = "player2"> 
+    <h1>Player 2</h1>
+</aside>
+
+<main id = "board">
+    
+</main>
+<div id = "block">
+    <h1>PLEASE ROTATE YOUR SCREEN FOR THE BEST EXPERIENCE!!!</h1>
+</div>
+<footer>
+    <button>REMATCH</button>
+</footer>
+{% endblock content%}

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang = "en">
+    <head>
+        <meta charset = "UTF-8">
+        {% load static %}
+        <link rel = "stylesheet" href = "{% static 'css/tabs-base.css' %}">
+        <script src = "{% static 'js/tabs-base.js' %}" defer></script>
+
+        {% block extra_static %}
+        {% endblock %}
+    </head>
+
+    <body>
+        <h1 id = "hidden-title">{% block title %}{% endblock %}</h1>
+        
+        <header>
+            <h1></h1>
+
+            <ul>
+                <li><a href = "{% url 'home' %}">Home 🏠</a></li>
+                {% block origin %}<li><a href = "{% url 'origin' %}">Origin 🌱</a></li>{% endblock %}
+                {% block hall-of-fame %}<li><a href = "{% url 'hall-of-fame' %}">Hall of Fame 👑</a></li>{% endblock %}
+                {% block bugs %}<li><a href = "{% url 'bugs' %}">Report Bugs 🐛</a></li>{% endblock %}
+                {% block suggestions %}<li><a href = "{% url 'suggestions' %}">Suggestions 💡</a></li>{% endblock %}
+            </ul>
+
+        </header>
+
+        <main>
+            {% block content %}
+            {% endblock content %}
+        </main>
+    </body>
+</html>

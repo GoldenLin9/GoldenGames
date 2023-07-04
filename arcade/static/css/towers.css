@@ -1,0 +1,101 @@
+body {
+    margin: 0;
+    background-color: skyblue;
+  }
+  
+  body main {
+    display: -ms-grid;
+    display: grid;
+    -ms-grid-columns: 1fr 1fr 1fr;
+        grid-template-columns: 1fr 1fr 1fr;
+  }
+  
+  body main #game {
+    position: relative;
+  }
+  
+  body main #game canvas {
+    display: block;
+    margin: 0 auto;
+    -webkit-filter: blur(1px);
+            filter: blur(1px);
+  }
+  
+  body main #game #banner {
+    position: absolute;
+    top: 25%;
+    left: 50%;
+    -webkit-transform: translate(-50%);
+            transform: translate(-50%);
+    background-color: rgba(184, 184, 184, 0.8);
+    padding: 0.5em 0em;
+  }
+  
+  body main #game #text {
+    font-size: 1.5rem;
+    text-shadow: 2px 2px white;
+    color: black;
+    text-align: center;
+    margin: 1em;
+  }
+  
+  body main #game #icon-container {
+    position: absolute;
+    top: 70%;
+    width: 50px;
+    height: 50px;
+    background-color: rgba(184, 184, 184, 0.8);
+    left: 50%;
+    -webkit-transform: translate(-50%) scale(1.25);
+            transform: translate(-50%) scale(1.25);
+    border-radius: 1em;
+    display: -ms-grid;
+    display: grid;
+    place-items: center;
+    font-size: 26px;
+    -webkit-animation: grow 1250ms ease-in-out infinite;
+            animation: grow 1250ms ease-in-out infinite;
+    cursor: pointer;
+  }
+  
+  body main aside {
+    font-size: 1.75rem;
+    padding-top: 2rem;
+    color: brown;
+    font-weight: 800;
+  }
+  
+  @-webkit-keyframes grow {
+    0% {
+      -webkit-transform: translate(-50%) scale(1.25);
+              transform: translate(-50%) scale(1.25);
+    }
+    50% {
+      -webkit-transform: translate(-50%) scale(1.5);
+              transform: translate(-50%) scale(1.5);
+    }
+    100% {
+      -webkit-transform: translate(-50%) scale(1.25);
+              transform: translate(-50%) scale(1.25);
+    }
+  }
+  
+  @keyframes grow {
+    0% {
+      -webkit-transform: translate(-50%) scale(1.25);
+              transform: translate(-50%) scale(1.25);
+    }
+    50% {
+      -webkit-transform: translate(-50%) scale(1.5);
+              transform: translate(-50%) scale(1.5);
+    }
+    100% {
+      -webkit-transform: translate(-50%) scale(1.25);
+              transform: translate(-50%) scale(1.25);
+    }
+  }
+  
+  header h1 {
+    color: firebrick;
+  }
+  /*# sourceMappingURL=Towers.css.map */

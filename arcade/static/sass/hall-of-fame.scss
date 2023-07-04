@@ -1,0 +1,54 @@
+main{
+    display: flex;
+
+    .card{
+        width: 300px;
+        height: 300px;
+        background-color: rgb(106, 56, 5);
+        margin: 50px;
+        border-radius: 10%;
+        display: flex;
+        flex-direction: column;
+        
+        h1{
+            text-align: center;
+            color: rgb(230, 226, 214);
+        }
+
+        .bars{
+            display: flex;
+            justify-content: center;
+            align-items: end;
+            flex-grow: 1;
+
+            .bar{
+                width: 80px;
+            }
+
+            .bar:nth-child(1){
+                order:2;
+                height: 80%;
+                background-color: gold;
+            }
+            .bar:nth-child(2){
+                order:1;
+                height: 60%;
+                background-color: silver;
+            }
+            .bar:nth-child(3){
+                order:3;
+                height: 40%;
+                background-color: rgb(173, 138, 86);
+            }
+
+            .name, .score{
+                font-weight: 800;
+                justify-content: center;
+                text-align: center;
+            }
+        }
+
+
+    }
+}
+

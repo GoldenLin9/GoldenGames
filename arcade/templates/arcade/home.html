@@ -1,5 +1,4 @@
 {% load crispy_forms_tags %}
-
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -17,13 +16,15 @@
         {% endblock %}
     </head>
     <body>
+        <h1 id = "hidden-title" style="display:none">Golden Games</h1>
+
         <header>
             <h1></h1>
             <ul>
-                <li>About the Creator</li>
-                <li>Hall of Fame 👑</li>
-                <li>Report Bugs 🐛</li>
-                <li>Suggestions 💡</li>
+                <li><a href = "{% url 'origin' %}">Origin 🌱</a></li>
+                <li><a href = "{% url 'hall-of-fame' %}">Hall of Fame 👑</a></li>
+                <li><a href = "{% url 'bugs' %}">Report Bugs 🐛</a></li>
+                <li><a href = "{% url 'suggestions' %}">Suggestions 💡</a></li>
             </ul>
         </header>
 
@@ -63,10 +64,10 @@
                 <section id = "games">
                     {% for game in games %}
                         <div class = "containers">
-                            <a href = "{% url 'mine' %}">
-                                <img src = "{% static 'images/mine-thumb.PNG' %}">
+                            <a href = "{% url 'game' game.name %}">
+                                <img src = "{{game.thumbnail.url}}">
                             </a>
-                            <div class = "gameNames">{{ game.name }}</div>
+                            <div class = "gameNames">{{ game.name | title}}</div>
                         </div>
                     {% endfor %}
                 </section>
@@ -109,6 +110,13 @@
                         <li>1/24/22: Home Page established</li>
                     </ul>
                 </div>
+                
+                {% if user.is_authenticated %}
+                    <form method = "POST">
+                        {% csrf_token %}
+                        <button type = "submit" id = "logout" name = "submit" value = "log_out">Logout</button>
+                    </form>
+                {% endif %}
             </aside>
         </main>
 

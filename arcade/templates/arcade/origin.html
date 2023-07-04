@@ -1,0 +1,30 @@
+{% extends "arcade/tabs-base.html" %}
+
+{% load static %}
+
+{% block extra_static %}
+<link rel = "stylesheet" href = "{% static 'css/origin.css' %}">
+{% endblock %}
+
+{% block title %}Origin 🌱{% endblock %}
+{% block origin %}{% endblock %}
+
+{% block content %}
+<div id = "text">
+    <div id = "bio" class = "para">
+        Hello👋! For those who don't know me, my name is Golden Lin and this website started out as a passion project to 
+        cure people's boredom in high school. Coming from a paperless high school, we had iPads which effectively replaced
+        backpacks, and obviously, our school was out to get rid of EVERY form of entertainment including the inability to
+        access the App Store, numerous gaming websites, and even CHESS!!! I dedicate this website to the students of my
+        school and myself to recreate an arcade of my favorite games growing up as a kid. And of course, any suggestions
+        for game ideas are appreciated. Feel free to drop a game idea in <a>suggestions</a> and I'll see what I can do.
+        Enough about me; Go ahead, have fun, and enjoy the games!
+    </div>
+    
+    <div id = "fun_fact" class = "para">
+        Fun Fact: The first game created in this arcade was Minesweeper and it was dedicated to my Math teacher who was one
+        of the best Minesweeper players in the world. He helped me along with the creation of the game to mimic the game as
+        close as possible
+    </div>
+</div>
+{% endblock %}

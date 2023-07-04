@@ -1,0 +1,176 @@
+:root{
+    --color2: rgba(0,0,0,0.5);
+    --color1: rgba(0,0,0,0);
+}
+
+html{
+    background-color: orange;
+    position: relative;
+}
+
+body{
+    margin: 0 auto;
+    width: 50vw;
+}
+
+header h1{
+    text-align: center;
+    font-size: 3.5rem;
+    margin-bottom: 0.4em;
+    margin-top: 1em;
+    color:royalblue;
+}
+
+#board{
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+#block{
+    width: 100vw;
+    min-height: 100vh;
+    background-color: rgba(0,0,0,0.8);
+    position: absolute;
+    inset: 0;
+    visibility: hidden;
+    display: grid;
+    justify-items: center;
+    align-items: center;
+}
+
+#block h1{
+    color: white;
+    width: 50vw;
+    text-align: center;
+    line-height: 1.5em;
+    font-size: 4rem;
+}
+
+#player1{
+    width: 20vw;
+    height: 20vw;
+    position: absolute;
+    background-color: turquoise;
+    left: 2.5vw;
+    border-radius: 100%;
+    top: 30vh;
+    display: grid;
+}
+
+#player2{
+    width: 20vw;
+    height: 20vw;
+    position: absolute;
+    background-color: firebrick;
+    right: 2.5vw;
+    border-radius: 100%;
+    top: 30vh;
+    display: grid;
+}
+
+#player2::after, #player1::after{
+    content: "";
+    position: absolute;
+    background-color: var(--color);
+    width: 100%;
+    height: 100%;
+    border-radius: 100%;
+}
+
+#player2::after{
+    background-color: var(--color2);
+}
+
+#player1::after{
+    background-color: var(--color1);
+}
+
+aside{
+    justify-items: center;
+    align-items: center;
+}
+
+aside h1{
+    font-size: 4rem;
+    text-align: center;
+    color: rgb(99, 146, 60);
+}
+
+@media (orientation: portrait){
+    #block{
+        visibility: visible;
+    }
+}
+
+@media (max-height: 800px){
+    aside h1{
+        font-size: 2.5rem;
+    }
+}
+
+footer{
+    display: grid;
+    justify-content: center;
+    align-items: center;
+}
+
+button{
+    width: 30vw;
+    height: 5vh;
+    margin-top: 4vh;
+    background-color:violet;
+    border-radius: 1em;
+    cursor: pointer;
+    visibility: hidden;
+}
+
+.circle{
+    cursor: pointer;
+}
+
+header ul{
+    display: flex;
+    justify-content: space-around;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+}
+
+.star{
+    cursor: pointer;
+}
+
+header li img{
+    height: 1.5em;
+}
+
+header li{
+    font-size: 1.5rem;
+    border: 4px solid black;
+    flex-grow: 1;
+    background-color: rgb(43, 164, 204);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    box-sizing: border-box;
+    padding: 0;
+}
+
+header a{
+    text-decoration: none;
+    color: black;
+    height: 100%;
+    width: 100%;
+    margin: 0.25em 0;
+}
+
+header a:hover{
+    transition: 500ms ease-in; 
+    background-color: skyblue;
+}

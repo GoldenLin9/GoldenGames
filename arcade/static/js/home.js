@@ -1,5 +1,5 @@
 let header = document.querySelector("header h1");
-const title = "Golden Games";
+const title = document.querySelector("#hidden-title").textContent;
 let count = 0;
 const glowTime = 125;
 const aside = document.querySelector("aside");
@@ -48,7 +48,7 @@ window.addEventListener("resize", ()=>{
 })
 
 
-for(let letter of title){
+for(let letter of title.toString()){
     let single = document.createElement("span");
     single.textContent = letter;
     header.append(single);

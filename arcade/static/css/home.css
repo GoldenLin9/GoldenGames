@@ -42,6 +42,12 @@ header li{
     flex: 1 1 auto;
 }
 
+header a{
+    width: 100%;
+    height: 100%;
+    text-decoration: none;
+}
+
 main{
     display: flex;
 }
@@ -360,4 +366,19 @@ html{
     aside{
         flex: 1 1 auto;
     }
+}
+
+aside {
+    position: relative;
+}
+
+#logout {
+    position: absolute;
+    bottom: 3px;
+    right: 3px;
+    border-radius: 3px;
+}
+
+body {
+    overflow: hidden;
 }

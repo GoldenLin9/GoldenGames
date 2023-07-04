@@ -1,0 +1,74 @@
+{% extends "arcade/tabs-base.html" %}
+
+{% load static %}
+
+{% block extra_static %}
+<link rel = "stylesheet" href = "{% static 'css/chat_base.css' %}">
+<script src = "{% static 'js/chat_base.js' %}" defer></script>
+<script src="https://kit.fontawesome.com/a07d24ab47.js" crossorigin="anonymous"></script>
+{% endblock %}
+
+
+{% block bugs %}
+{% endblock bugs %}
+
+{% block content %}
+
+    <form method = "POST" action = "#" style = "display: block">
+        {% csrf_token %}
+
+        <div id = "user_post_box">
+            {% block textBox %}
+                <textarea id = "user_post_text" rows = 5 name = "rootComment" placeholder = "REPLACE ME!"></textarea>
+            {% endblock %}
+            <button id = "user_post_button" type = "submit" name = "newComment" value = "newComment">Post</button>
+        </div>
+    </form>
+
+    {% for root in all_roots %}
+        <div class = "root">
+            {% for sub_root in root %}
+                <div class = "post" style = "margin-left: calc(({{sub_root.0}}rem * 2) + 0.5rem)">
+                    <div class = "head">
+
+                        {% if sub_root.1.user == request.user %}
+                            <small><strong style = "color: blue">{{ sub_root.1.user }}</strong>- {{ sub_root.1.date }}</small>
+                        {% else %}
+                            <small><strong>{{ sub_root.1.user }}</strong>- {{ sub_root.1.date }}</small>
+                        {% endif %}
+
+                    </div>
+                    
+                    <div class = "minimize">
+                        <p class = "tab{{sub_root.0}} comment">{{sub_root.1.comment}}</p>
+                        <p class = "line">&nbsp;</p>
+                        <div class = "icons">
+                            <!-- <i class="fa-solid fa-arrow-up"></i> -->
+                            <!-- <span>{{sub_root.1.likes.count}}</span> -->
+                            <!-- <i class="fa-solid fa-arrow-down"></i> -->
+                            <i class="fa-solid fa-message"></i>
+                        </div>
+
+                        <form method = "POST" action = "#" style = "display: none" class = "commentForm">
+                            {% csrf_token %}
+                            
+                            <div class = "hidden" style = "display: none">
+                                <input type = "text" name = "respond_to" value = "{{ sub_root.1.comment }}">
+                            </div>
+
+                            <div class = "textBox">
+                                {% if user.is_authenticated %}
+                                    <textarea cols = 30 rows = 5 class = "textField" name = "comment" placeholder = "What are your thoughts?"></textarea>
+                                    <button class = "postButton" type = "submit" name = "newComment" value = "newComment">Post</button>
+                                {% else %}
+                                    <textarea cols = 30 rows = 5 class = "textField" name = "comment" placeholder = "You must be logged in to comment!" disabled></textarea>
+                                    <button class = "postButton" type = "submit" name = "newComment" value = "newComment" disabled>Post</button>
+                                {% endif %}
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    {% endfor %}
+{% endblock content %}

@@ -1,0 +1,33 @@
+#text {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  height: 80vh;
+}
+#text .para {
+  width: 60%;
+  text-align: center;
+  font-size: 20px;
+  flex: 0 1 auto;
+}
+#text .button {
+  margin-top: 20px;
+  width: 20%;
+  height: 10%;
+  font-size: 20px;
+  font-weight: bold;
+  cursor: pointer;
+  flex: 0 1 auto;
+}
+#text #bio {
+  font-weight: bolder;
+}
+#text #fun_fact {
+  margin-top: 40px;
+  font-size: 20px;
+}
+
+main {
+  height: 100%;
+}/*# sourceMappingURL=origin.css.map */
