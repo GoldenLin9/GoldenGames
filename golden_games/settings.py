@@ -132,5 +132,3 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
 CSRF_COOKIE_NAME = "csrftoken"
-
-django_heroku.settings(locals())
