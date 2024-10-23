@@ -36,7 +36,28 @@ def home(request):
 
     sign_up = UserCreationForm()
     log_in = AuthenticationForm()
-    games = Game.objects.all()
+    games = {
+        {
+            "name:": "Minesweeper",
+            "thumbnail": {
+                "url": "mine-thumb.png",
+            },
+
+        },
+        {
+            "name": "Towers",
+            "thumbnail": {
+                "url": "towers-thumb.png",
+            },
+
+        },
+        {
+            "name": "Connect Four",
+            "thumbnail": {
+                "url": "connect4-thumb.png",
+            },
+        }
+    }
 
     context = {
         "sign_up": sign_up,
