@@ -40,21 +40,21 @@ def home(request):
         {
             "name:": "Minesweeper",
             "thumbnail": {
-                "url": "mine-thumb.png",
+                "url": "images/mine-thumb.png",
             },
 
         },
         {
             "name": "Towers",
             "thumbnail": {
-                "url": "towers-thumb.png",
+                "url": "images/towers-thumb.png",
             },
 
         },
         {
             "name": "Connect Four",
             "thumbnail": {
-                "url": "connect4-thumb.png",
+                "url": "images/connect4-thumb.png",
             },
         }
     }
