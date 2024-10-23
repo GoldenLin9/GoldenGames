@@ -62,37 +62,14 @@
                 </section>
 
                 <section id = "games">
-                    {% comment %} {% for game in games %}
+                    {% for game in games %}
                         <div class = "containers">
                             <a href = "{% url 'game' game.name %}">
                                 <img src = "{{game.thumbnail.url}}">
                             </a>
                             <div class = "gameNames">{{ game.name | title}}</div>
                         </div>
-                    {% endfor %} {% endcomment %}
-
-                    <div class = "containers">
-                        <a href = "{% url 'game' 'minesweeper' %}">
-                            <img src = "{% static 'images/minesweeper.png' %}">
-                        </a>
-                        <div class = "gameNames">Minesweeper</div>
-                    </div>
-
-                    <div class = "containers">
-                        <a href = "{% url 'game' 'connect4' %}">
-                            <img src = "{% static 'images/connect4-thumb.png' %}">
-                        </a>
-                        <div class = "gameNames">Connect 4</div>
-
-                    </div>
-                    
-                    <div class = "containers">
-                        <a href = "{% url 'game' 'towers' %}">
-                            <img src = "{% static 'images/towers-thumb.png' %}">
-                        </a>
-                        <div class = "gameNames">Towers</div>
-                    </div>
-
+                    {% endfor %}
                 </section>
             </div>
     
