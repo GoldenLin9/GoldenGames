@@ -36,7 +36,7 @@ def home(request):
 
     sign_up = UserCreationForm()
     log_in = AuthenticationForm()
-    games = {
+    games = [
         {
             "name:": "Minesweeper",
             "thumbnail": {
@@ -57,7 +57,7 @@ def home(request):
                 "url": "images/connect4-thumb.png",
             },
         }
-    }
+    ]
 
     context = {
         "sign_up": sign_up,
